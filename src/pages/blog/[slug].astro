@@ -71,36 +71,6 @@ const formatDate = (date: Date) => {
           </section>
         )}
 
-        {/* Section de Debug technique pour le Snack Content - LinkedIn et X Thread */}
-        <section class="snacks-debug">
-          <h3>
-            <span>Snacks Disponibles</span>
-            <span class="badge">Pipeline Hermes</span>
-          </h3>
-          
-          <div class="snack-section">
-            <h4>LinkedIn Snack</h4>
-            <pre class="snack-content-box"><strong>Hook :</strong>
-{entry.data.snacks.linkedin.hook}
-
-<strong>Takeaway :</strong>
-{entry.data.snacks.linkedin.takeaway}</pre>
-          </div>
-
-          <div class="snack-section">
-            <h4>Thread X</h4>
-            {entry.data.snacks.x_thread.map((tweetObj, idx) => {
-              const tweetKey = `tweet_${idx + 1}`;
-              const tweetText = tweetObj[tweetKey] || Object.values(tweetObj)[0];
-              return (
-                <div style="margin-bottom: 0.75rem;">
-                  <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Tweet {idx + 1} / {entry.data.snacks.x_thread.length}</span>
-                  <pre class="snack-content-box" style="padding: 0.75rem; margin-bottom: 0.5rem;">{tweetText}</pre>
-                </div>
-              );
-            })}
-          </div>
-        </section>
       </article>
     </div>
 
