@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  type?: string;
+}
+
+const { title, description, type = 'website' } = Astro.props;
+const siteTitle = "Nicolas | Architecte de Systèmes QSE Autonomes";
+const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Balises SEO Fondamentales -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph (Réseaux Sociaux / Substack previews) -->
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Script de gestion du thème pour éviter le FOUC (Flash of Unstyled Content) -->
+    <script is:inline>
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+          document.documentElement.setAttribute('data-theme', storedTheme);
+        } else {
+          const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = userPrefersDark ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="container nav-wrapper">
+        <a href="/" class="logo">Nicolas</a>
+        <nav class="nav-links">
+          <a href="/">Articles</a>
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème" type="button">Thème</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© {new Date().getFullYear()} Nicolas. Architecte de Systèmes QSE Autonomes.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Build in public. Propulsé par Astro & Agents Autonomes.</p>
+      </div>
+    </footer>
+
+    <!-- Script interactif d'écouteur pour le toggle de thème -->
+    <script is:inline>
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        // Mettre à jour le texte du bouton en fonction du thème actuel
+        const updateButtonText = (theme) => {
+          themeToggle.textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        };
+
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        updateButtonText(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+          const activeTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+          
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateButtonText(newTheme);
+        });
+      }
+    </script>
+  </body>
+</html>

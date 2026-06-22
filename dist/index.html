@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.16.19"><!-- Balises SEO Fondamentales --><title>Nicolas | Architecte de Systèmes QSE Autonomes</title><meta name="description" content="Publications techniques sur la convergence entre l'IA agentique et la gestion des risques / conformité ISO (9001, 14001, 45001). Conçu pour Marc, Responsable QSE."><meta name="robots" content="index, follow"><!-- Open Graph (Réseaux Sociaux / Substack previews) --><meta property="og:type" content="website"><meta property="og:title" content="Nicolas | Architecte de Systèmes QSE Autonomes"><meta property="og:description" content="Publications techniques sur la convergence entre l'IA agentique et la gestion des risques / conformité ISO (9001, 14001, 45001). Conçu pour Marc, Responsable QSE."><!-- Twitter Cards --><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Nicolas | Architecte de Systèmes QSE Autonomes"><meta name="twitter:description" content="Publications techniques sur la convergence entre l'IA agentique et la gestion des risques / conformité ISO (9001, 14001, 45001). Conçu pour Marc, Responsable QSE."><!-- Script de gestion du thème pour éviter le FOUC (Flash of Unstyled Content) --><script>
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+          document.documentElement.setAttribute('data-theme', storedTheme);
+        } else {
+          const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = userPrefersDark ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      })();
+    </script><link rel="stylesheet" href="/_astro/_slug_.Bv72pU0Z.css"></head> <body> <header> <div class="container nav-wrapper"> <a href="/" class="logo">Nicolas</a> <nav class="nav-links"> <a href="/">Articles</a> <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème" type="button">Thème</button> </nav> </div> </header> <main class="container">  <section class="hero-section" style="margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color);"> <h1 style="font-size: 2.5rem; margin-bottom: 1rem; letter-spacing: -0.04em;">Systèmes QSE Autonomes</h1> <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 0;">
+Je documente en direct la convergence entre l'IA agentique et la gestion des risques ou la conformité ISO.
+      Des analyses techniques chirurgicales et pragmatiques, loin du corporate speak.
+</p> </section> <section> <h2 style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: none; margin-bottom: 2rem;">
+Toutes les publications
+</h2> <div class="post-list"> <article class="post-card"> <div class="post-meta"> <span class="post-pilier">Convergence</span> <time datetime="2026-06-22T00:00:00.000Z">22 juin 2026</time> </div> <h2> <a href="/blog/ia-agentique-qse/">IA Agentique et ISO 9001 : Automatisation sans perte de contrôle</a> </h2> <p>Comment décharger le responsable QSE de 60% de ses tâches de reporting administratif sans dégrader la conformité et l&#39;auditabilité.</p> </article> </div> </section>  </main> <footer> <div class="container"> <p>© 2026 Nicolas. Architecte de Systèmes QSE Autonomes.</p> <p style="margin-top: 0.5rem; font-size: 0.75rem;">Build in public. Propulsé par Astro & Agents Autonomes.</p> </div> </footer> <!-- Script interactif d'écouteur pour le toggle de thème --> <script>
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        // Mettre à jour le texte du bouton en fonction du thème actuel
+        const updateButtonText = (theme) => {
+          themeToggle.textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        };
+
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        updateButtonText(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+          const activeTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+          
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateButtonText(newTheme);
+        });
+      }
+    </script> </body> </html>
