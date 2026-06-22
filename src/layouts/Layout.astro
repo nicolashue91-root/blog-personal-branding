@@ -50,6 +50,9 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
     </script>
   </head>
   <body>
+    <!-- Barre de progression de lecture (1.5px, couleur terracotta) -->
+    <div id="progress-bar" style="position: fixed; top: 0; left: 0; height: 2px; background-color: var(--accent-color); width: 0%; z-index: 1000; transition: width 0.1s ease;"></div>
+
     <header>
       <div class="container nav-wrapper">
         <a href="/" class="logo">Nicolas</a>
@@ -71,11 +74,11 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
       </div>
     </footer>
 
-    <!-- Script interactif d'écouteur pour le toggle de thème -->
+    <!-- Script d'interactivité : Theme Toggle & Barre de progression -->
     <script is:inline>
+      // 1. Gestion du bouton de changement de thème
       const themeToggle = document.getElementById('theme-toggle');
       if (themeToggle) {
-        // Mettre à jour le texte du bouton en fonction du thème actuel
         const updateButtonText = (theme) => {
           themeToggle.textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
         };
@@ -92,6 +95,17 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
           updateButtonText(newTheme);
         });
       }
+
+      // 2. Gestion de la barre de progression de lecture au défilement
+      window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+        const progressBar = document.getElementById('progress-bar');
+        if (progressBar) {
+          progressBar.style.width = scrolled + '%';
+        }
+      });
     </script>
   </body>
 </html>

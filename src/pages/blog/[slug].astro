@@ -10,7 +10,18 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
+
+// Filtrage des headings pour ne garder que les H2 et H3 dans la table des matières
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+
+// Helper pour calculer le temps de lecture
+const getReadingTime = (body: string) => {
+  const wordsPerMinute = 200;
+  const wordCount = body.split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
+  return `${minutes} min de lecture`;
+};
 
 // Formatter de date simple
 const formatDate = (date: Date) => {
@@ -23,67 +34,125 @@ const formatDate = (date: Date) => {
 ---
 
 <Layout title={entry.data.title} description={entry.data.description} type="article">
-  <article>
-    <header style="border-bottom: none; padding: 0; margin-bottom: 2.5rem; background: none;">
-      <div class="post-meta" style="margin-bottom: 1rem;">
-        <span class="post-pilier" style="font-weight: 700; color: var(--text-primary);">{entry.data.pilier}</span>
-        <span style="color: var(--border-color);">|</span>
-        <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
-      </div>
-      <h1 style="font-size: 2.5rem; margin-top: 0; margin-bottom: 1.5rem; line-height: 1.15; letter-spacing: -0.04em;">
-        {entry.data.title}
-      </h1>
-      <p style="font-size: 1.2rem; line-height: 1.5; color: var(--text-secondary); margin-bottom: 0; font-family: var(--font-serif); font-style: italic;">
-        {entry.data.description}
-      </p>
-    </header>
+  <div class="article-layout fade-in-entry">
+    {/* Corps principal de l'article */}
+    <div class="article-body">
+      <article>
+        <header style="border-bottom: none; padding: 0; margin-bottom: 2.5rem; background: none;">
+          <div class="post-meta" style="margin-bottom: 1rem;">
+            <span class="post-pilier" style="font-weight: 700; color: var(--accent-color);">{entry.data.pilier}</span>
+            <span style="color: var(--border-color);">•</span>
+            <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
+            <span style="color: var(--border-color);">•</span>
+            <span>{getReadingTime(entry.body)}</span>
+          </div>
+          <h1 style="font-size: 2.5rem; margin-top: 0; margin-bottom: 1.5rem; line-height: 1.18; letter-spacing: -0.04em; font-weight: 800;">
+            {entry.data.title}
+          </h1>
+          <p style="font-size: 1.15rem; line-height: 1.625; color: var(--text-secondary); margin-bottom: 0; font-family: var(--font-serif); font-style: italic;">
+            {entry.data.description}
+          </p>
+        </header>
 
-    <div class="prose">
-      <Content />
-    </div>
+        <div class="prose">
+          <Content />
+        </div>
 
-    {entry.data.sources && entry.data.sources.length > 0 && (
-      <section class="article-sources">
-        <h3>Sources & Références</h3>
-        <ul>
-          {entry.data.sources.map((source) => (
-            <li>
-              <a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
+        {entry.data.sources && entry.data.sources.length > 0 && (
+          <section class="article-sources">
+            <h3>Sources & Références</h3>
+            <ul>
+              {entry.data.sources.map((source) => (
+                <li>
+                  <a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
-    {/* Section de Debug technique pour le Snack Content - LinkedIn et X Thread */}
-    <section class="snacks-debug">
-      <h3>
-        <span>Snacks Disponibles</span>
-        <span class="badge">Pipeline Hermes</span>
-      </h3>
-      
-      <div class="snack-section">
-        <h4>LinkedIn Snack</h4>
-        <pre class="snack-content-box"><strong>Hook :</strong>
+        {/* Section de Debug technique pour le Snack Content - LinkedIn et X Thread */}
+        <section class="snacks-debug">
+          <h3>
+            <span>Snacks Disponibles</span>
+            <span class="badge">Pipeline Hermes</span>
+          </h3>
+          
+          <div class="snack-section">
+            <h4>LinkedIn Snack</h4>
+            <pre class="snack-content-box"><strong>Hook :</strong>
 {entry.data.snacks.linkedin.hook}
 
 <strong>Takeaway :</strong>
 {entry.data.snacks.linkedin.takeaway}</pre>
-      </div>
+          </div>
 
-      <div class="snack-section">
-        <h4>Thread X</h4>
-        {entry.data.snacks.x_thread.map((tweetObj, idx) => {
-          const tweetKey = `tweet_${idx + 1}`;
-          const tweetText = tweetObj[tweetKey] || Object.values(tweetObj)[0];
-          return (
-            <div style="margin-bottom: 0.75rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Tweet {idx + 1} / {entry.data.snacks.x_thread.length}</span>
-              <pre class="snack-content-box" style="padding: 0.75rem; margin-bottom: 0.5rem;">{tweetText}</pre>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  </article>
+          <div class="snack-section">
+            <h4>Thread X</h4>
+            {entry.data.snacks.x_thread.map((tweetObj, idx) => {
+              const tweetKey = `tweet_${idx + 1}`;
+              const tweetText = tweetObj[tweetKey] || Object.values(tweetObj)[0];
+              return (
+                <div style="margin-bottom: 0.75rem;">
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Tweet {idx + 1} / {entry.data.snacks.x_thread.length}</span>
+                  <pre class="snack-content-box" style="padding: 0.75rem; margin-bottom: 0.5rem;">{tweetText}</pre>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      </article>
+    </div>
+
+    {/* Table des matières collante (Sticky ToC) */}
+    {tocHeadings.length > 0 && (
+      <aside class="sidebar-toc">
+        <div class="toc-title">Sur cette page</div>
+        <nav class="toc-nav">
+          <ul>
+            {tocHeadings.map(heading => (
+              <li style={`padding-left: ${(heading.depth - 2) * 0.75}rem`}>
+                <a href={`#${heading.slug}`} id={`toc-link-${heading.slug}`}>
+                  {heading.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+    )}
+  </div>
+
+  {/* Script d'Intersection Observer pour mettre en valeur le sommaire dynamique */}
+  <script is:inline>
+    (function() {
+      const headings = Array.from(document.querySelectorAll('.prose h2, .prose h3'));
+      const tocLinks = Array.from(document.querySelectorAll('.toc-nav a'));
+
+      if (headings.length === 0 || tocLinks.length === 0) return;
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-10% 0px -70% 0px', // Zone d'observation ajustée au haut-milieu de l'écran
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      headings.forEach(heading => observer.observe(heading));
+    })();
+  </script>
 </Layout>
