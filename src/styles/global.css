@@ -234,19 +234,51 @@ footer {
 .theme-toggle-btn {
   background: none;
   border: 1px dotted var(--border-color);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--border-radius);
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   cursor: pointer;
   color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 500;
-  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
 }
 
 .theme-toggle-btn:hover {
   background-color: var(--accent-light);
   border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.theme-toggle-btn svg {
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+/* Mode Clair (par défaut) : affiche la lune, cache le soleil */
+.theme-toggle-btn .sun-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.theme-toggle-btn .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+/* Mode Sombre : affiche le soleil, cache la lune */
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
 }
 
 /* Page d'Accueil - Layout Featured + Grid */

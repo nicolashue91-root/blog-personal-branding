@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "À propos | Nicolas Hue";
+const description = "Parcours, thèse d'ingénierie et charte de travail de Nicolas Hue, Architecte de Systèmes QSE Autonomes.";
+---
+
+<Layout title={title} description={description}>
+  <article class="about-container fade-in-entry">
+    <header class="about-header">
+      <h1 class="page-title">Ma Démarche</h1>
+      <p class="subtitle">
+        Architecturer des systèmes d'IA autonomes et déterministes pour renvoyer le QSE sur le terrain.
+      </p>
+    </header>
+
+    <section class="about-content">
+      <h2>Le Constat : La Surcharge Administrative du QSE</h2>
+      <p>
+        Dans la majorité des organisations industrielles et logistiques, un responsable QSE (Qualité, Sécurité, Environnement) passe entre 60 % et 70 % de son temps de travail derrière un écran. Saisie de rapports d'incidents, mise à jour manuelle de tableurs Excel, rédaction de procédures réglementaires et veille de conformité normative absorbent l'essentiel de sa bande passante.
+      </p>
+      <p>
+        Pendant ce temps, les véritables risques se matérialisent sur le terrain, dans les ateliers et sur les lignes logistiques. Ce déséquilibre administratif nuit à l'efficacité réelle de la prévention et de la gestion des risques.
+      </p>
+
+      <h2>La Thèse : L'IA Agentique comme Solution Structurelle</h2>
+      <p>
+        L'émergence des architectures d'IA autonomes (les agents d'IA orientés vers les tâches) offre l'unique réponse viable à cette surcharge. En déléguant à des workflows automatisés et supervisés la saisie de données, le tri de non-conformités et la veille réglementaire, les équipes QSE peuvent se recentrer sur leur cœur de métier : l'animation de la sécurité sur le terrain, l'audit physique et la psychologie du changement.
+      </p>
+      <p>
+        L'objectif n'est pas d'intégrer des technologies complexes par effet de mode, mais de concevoir des outils fiables qui fiabilisent l'humain et libèrent du temps opérationnel.
+      </p>
+
+      <h2>Mon Parcours Hybride</h2>
+      <p>
+        Mon approche s'appuie sur une double compétence, technique et opérationnelle :
+      </p>
+      <ul>
+        <li><strong>Data & Digital (8 ans) :</strong> Une solide expérience dans la manipulation des flux de données, la structuration d'architectures numériques et l'automatisation logicielle.</li>
+        <li><strong>Terrain Logistique (1 an) :</strong> Une immersion directe dans la réalité opérationnelle des flux physiques, me permettant de comprendre les contraintes concrètes des opérateurs.</li>
+        <li><strong>Qualité, Sécurité, Environnement (Advitam) :</strong> Actuellement alternant QSE au sein du Groupe Advitam, j'applique ces concepts d'automatisation et d'ingénierie logicielle directement sur des problématiques industrielles réelles.</li>
+      </ul>
+
+      <h2>Les Quatre Piliers de l'Ingénierie</h2>
+      <p>
+        Tout système autonome que je conçois et documente sur ce blog doit satisfaire à quatre exigences strictes :
+      </p>
+      <div class="piliers-grid">
+        <div class="pilier-card">
+          <h3>Robustesse</h3>
+          <p>Un système qui échoue face à une exception non gérée ou une déconnexion réseau n'est pas prêt pour l'industrie. Ce n'est qu'un prototype.</p>
+        </div>
+        <div class="pilier-card">
+          <h3>Sécurité</h3>
+          <p>L'isolation des données, le chiffrement des flux et le contrôle strict des accès sont non négociables. Un système mal sécurisé est une faille critique.</p>
+        </div>
+        <div class="pilier-card">
+          <h3>Déterminisme</h3>
+          <p>Les hallucinations ou les comportements aléatoires des modèles de langage n'ont pas leur place en QSE. Les résultats d'un agent doivent être prédictibles et reproductibles.</p>
+        </div>
+        <div class="pilier-card">
+          <h3>Économie</h3>
+          <p>L'exploitation d'une automatisation doit rester frugale. Les appels d'API et la consommation de ressources serveurs doivent être optimisés au centime près.</p>
+        </div>
+      </div>
+
+      <h2>Engagement "Zéro Posture"</h2>
+      <p>
+        Ce blog n'est pas un canal de communication marketing. C'est un espace de documentation technique et de partage d'expériences froides.
+      </p>
+      <p>
+        Chaque article ou étude de cas partagé ici s'appuie sur des faits vérifiables, des lignes de code réelles et des métriques constatées. Les erreurs d'architecture, les hallucinations d'agents rencontrées et les échecs de déploiement y sont documentés avec la même rigueur que les réussites. C'est par cette transparence factuelle que se construit une ingénierie d'automatisation fiable et pérenne.
+      </p>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .about-container {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+  
+  .about-header {
+    margin-bottom: 3rem;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+  }
+  
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  .about-content h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .about-content p {
+    margin-bottom: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  
+  .about-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.25rem;
+    color: var(--text-secondary);
+  }
+  
+  .about-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+  
+  .piliers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+  
+  .pilier-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    transition: border-color var(--transition-speed) ease;
+  }
+  
+  .pilier-card:hover {
+    border-color: var(--accent-color);
+  }
+  
+  .pilier-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .pilier-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--text-secondary);
+  }
+  
+  @media (max-width: 600px) {
+    .piliers-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
