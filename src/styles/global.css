@@ -168,13 +168,32 @@ a:hover {
   align-items: center;
 }
 
-.site-header a.logo {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 1.1rem;
+.site-header .logo-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
-  letter-spacing: -0.02em;
+}
+
+.site-header .logo-icon {
+  color: var(--accent-color);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-header .logo-brand:hover .logo-icon {
+  transform: rotate(180deg);
+}
+
+.site-header .logo-text {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.15rem;
   color: var(--text-primary);
+}
+
+.site-header .logo-text strong {
+  font-weight: 700;
+  color: var(--accent-color);
 }
 
 .nav-links {

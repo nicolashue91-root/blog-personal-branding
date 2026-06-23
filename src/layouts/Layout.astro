@@ -55,7 +55,14 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
 
     <header class="site-header">
       <div class="container nav-wrapper">
-        <a href="/" class="logo">Nicolas</a>
+        <a href="/" class="logo-brand">
+          <svg class="logo-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" stroke="var(--text-muted)" stroke-dasharray="3 3" />
+            <path d="M12 2a10 10 0 0 1 10 10" stroke="var(--accent-color)" />
+            <polyline points="12 2 15 5 12 8" stroke="var(--accent-color)" />
+          </svg>
+          <span class="logo-text">Nicolas <strong>Hue</strong></span>
+        </a>
         <nav class="nav-links">
           <a href="/">Articles</a>
           <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème" type="button">Thème</button>
@@ -69,7 +76,7 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
 
     <footer>
       <div class="container">
-        <p>© {new Date().getFullYear()} Nicolas. Architecte de Systèmes QSE Autonomes.</p>
+        <p>© {new Date().getFullYear()} Nicolas Hue. Architecte de Systèmes QSE Autonomes.</p>
         <p style="margin-top: 0.5rem; font-size: 0.75rem;">Build in public. Propulsé par Astro & Agents Autonomes.</p>
       </div>
     </footer>
