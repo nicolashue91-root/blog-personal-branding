@@ -321,6 +321,7 @@ footer {
   margin-bottom: 3rem;
   box-shadow: var(--shadow-sm);
   position: relative;
+  cursor: pointer;
   transition: transform var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1), box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
 
@@ -424,6 +425,7 @@ footer {
   flex-direction: column;
   height: 100%;
   position: relative;
+  cursor: pointer;
   transition: transform var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1), box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
 
@@ -463,6 +465,29 @@ footer {
   font-size: 0.95rem;
   margin-bottom: 0;
   flex-grow: 1;
+}
+
+/* Stretched links to make whole cards clickable */
+.featured-card h2 a::after,
+.post-card h2 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.featured-card a:not(h2 a),
+.post-card a:not(h2 a) {
+  position: relative;
+  z-index: 2;
+}
+
+.featured-card:hover h2 a,
+.post-card:hover h2 a {
+  color: var(--accent-color);
 }
 
 /* Rendu de la Prose (Markdown) */

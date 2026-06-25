@@ -1,4 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect x="25" y="25" width="50" height="50" rx="4" fill="none" stroke="currentColor" stroke-width="6"/>
-  <line x1="25" y1="25" x2="75" y2="75" stroke="currentColor" stroke-width="6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <style>
+    circle {
+      stroke: #7d8185;
+    }
+    path, polyline {
+      stroke: #c2593f;
+    }
+    @media (prefers-color-scheme: dark) {
+      circle {
+        stroke: #62676b;
+      }
+      path, polyline {
+        stroke: #d66f54;
+      }
+    }
+  </style>
+  <circle cx="12" cy="12" r="10" stroke-dasharray="3 3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M12 2a10 10 0 0 1 10 10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="12 2 15 5 12 8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
