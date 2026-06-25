@@ -21,7 +21,7 @@ const blog = defineCollection({
       x_thread: z.array(
         z.record(z.string(), z.string())
       ),
-    }),
+    }).optional(),
   }),
 });
 

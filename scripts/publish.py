@@ -3,7 +3,10 @@ import shutil
 
 # Définition des chemins absolus sur la machine Windows de l'hôte
 SOURCE_DIR = os.path.abspath(
-    r"C:\Users\nhdep\AppData\Local\hermes\sandboxes\docker\default\home\personal-branding\content_pipeline\published\pillar_content\blog"
+    os.path.join(
+        os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+        "content_pipeline", "published", "pillar_content", "blog"
+    )
 )
 TARGET_DIR = os.path.abspath(
     os.path.join(
@@ -25,11 +28,11 @@ def has_yaml_frontmatter(filepath):
         return False
 
 def import_articles():
-    print(f"[Import] Recherche d'articles dans la sandbox Hermes : {SOURCE_DIR}")
+    print(f"[Import] Recherche d'articles dans la source : {SOURCE_DIR}")
     print(f"[Import] Répertoire de destination du blog : {TARGET_DIR}")
 
     if not os.path.exists(SOURCE_DIR):
-        print(f"[Error] Le répertoire de la sandbox Hermes est introuvable.")
+        print(f"[Error] Le répertoire source est introuvable.")
         return
 
     # Nettoyage préalable des anciens fichiers importés pour éviter des résidus non valides

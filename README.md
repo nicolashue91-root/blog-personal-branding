@@ -6,7 +6,7 @@ Blog statique minimaliste et ultra-performant propulsé par Astro, conçu pour p
 - **Performance Instantanée** : Génération de site statique (SSG) sans JavaScript inutile côté client (zéro-JS footprint par défaut).
 - **Design System Custom** : Vanilla CSS pur avec variables CSS (clair/sombre automatique basé sur le système, persistance manuelle via `localStorage`).
 - **Contrat Frontmatter Strict** : Validation automatique du schéma des métadonnées (Zod) à chaque compilation.
-- **Snacks Preview intégré** : Rendu en bas de page des déclinaisons de contenu générées pour LinkedIn et X par le pipeline Hermes.
+- **Snacks Preview intégré** : Rendu en bas de page des déclinaisons de contenu générées pour LinkedIn et X par le Personal Branding Pipeline.
 
 ## 🛠️ Stack Technique
 - **Framework** : Astro (SSG)
@@ -39,17 +39,17 @@ Les fichiers statiques seront générés dans le dossier `/dist/`.
 
 ---
 
-## 🤖 Intégration Pipeline d'Agents (Hermes)
+## 🤖 Intégration Personal Branding Pipeline
 
-Les articles de blog sont rédigés de manière autonome par vos agents Hermes au sein de leur sandbox Docker.
+Les articles de blog sont rédigés de manière autonome par vos agents au sein du pipeline.
 
-Pour importer automatiquement les articles validés depuis le dossier `published` de la sandbox vers ce blog, exécutez simplement la commande suivante à la racine du blog :
+Pour importer automatiquement les articles validés depuis le dossier `published` du pipeline vers ce blog (si la copie automatique échoue), exécutez simplement la commande suivante à la racine du blog :
 
 ```bash
 npm run import-posts
 ```
 
-Ce script exécutera le programme Python `scripts/publish.py` qui récupérera les fichiers `.md` ou `.mdx` directement depuis le répertoire de la sandbox (`C:\Users\nhdep\AppData\Local\hermes\sandboxes\docker\default\home\personal-branding\content_pipeline\published`) et les copiera dans `src/content/blog/`.
+Ce script exécutera le programme Python `scripts/publish.py` qui récupérera les fichiers `.md` ou `.mdx` directement depuis le répertoire source (`../content_pipeline/published/pillar_content/blog`) et les copiera dans `src/content/blog/`.
 
 
 ---
