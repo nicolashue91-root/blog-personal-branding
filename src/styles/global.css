@@ -318,7 +318,7 @@ footer {
   border: 1px dotted var(--border-color);
   border-radius: var(--border-radius);
   padding: 2.25rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   box-shadow: var(--shadow-sm);
   position: relative;
   cursor: pointer;
@@ -711,4 +711,130 @@ footer {
 
 .article-sources li {
   margin-bottom: 0.4rem;
+}
+
+/* Active navigation link indicator */
+.nav-links a.active {
+  color: var(--text-primary) !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--accent-color) !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 6px !important;
+}
+
+/* Social icons layout and formatting */
+.header-divider {
+  width: 1px;
+  height: 16px;
+  background-color: var(--border-color);
+  opacity: 0.6;
+}
+
+.header-socials {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.social-icon-link, 
+.social-icon-link:hover, 
+.social-icon-link:focus {
+  text-decoration: none !important;
+  text-decoration-color: transparent !important;
+  border-bottom: none !important;
+}
+
+.social-icon-link {
+  color: var(--text-muted) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.social-icon-link:hover {
+  color: var(--accent-color) !important;
+  transform: translateY(-1px);
+}
+
+/* Qui suis-je section styles */
+.about-preview-section {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px dotted var(--border-color);
+}
+
+.about-preview-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-preview-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  flex-shrink: 0;
+  transition: border-color var(--transition-speed) ease;
+}
+
+.about-preview-container:hover .about-preview-photo {
+  border-color: var(--accent-color);
+}
+
+.about-preview-content {
+  flex-grow: 1;
+}
+
+.about-preview-title {
+  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--accent-color);
+  border: none;
+  padding-bottom: 0;
+}
+
+.about-preview-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.about-preview-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-color) !important;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color var(--transition-speed) ease;
+}
+
+.about-preview-link:hover {
+  color: var(--accent-hover) !important;
+}
+
+@media (max-width: 640px) {
+  .about-preview-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
 }
