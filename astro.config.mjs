@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nicolas-hue.com',
+  site: 'https://www.nicolas-hue.com',
   integrations: [mdx(), sitemap()],
   output: 'static',
   redirects: {
