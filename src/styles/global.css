@@ -356,7 +356,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--accent-color);
+  color: var(--accent-hover);
   background-color: var(--accent-light);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
