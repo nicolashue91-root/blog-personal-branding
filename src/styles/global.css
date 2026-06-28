@@ -1,5 +1,4 @@
-/* Import des polices Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* Les polices Google Fonts sont chargées de manière performante dans Layout.astro */
 
 /* Variables globales et Design System "Warm Editorial Blueprint" */
 :root {
@@ -13,10 +12,10 @@
   --bg-code: #f3efe7;
   --text-primary: #1c1d1f;
   --text-secondary: #4a4d50;
-  --text-muted: #7d8185;
+  --text-muted: #5d6165; /* Contraste optimisé > 4.5:1 */
   --border-color: #eae3d8;
-  --accent-color: #c2593f; /* Terracotta */
-  --accent-hover: #9c452e;
+  --accent-color: #b84e34; /* Terracotta optimisé pour l'accessibilité sur fond crème */
+  --accent-hover: #913a23;
   --accent-light: #f6f0e5;
   --shadow-sm: 0 2px 4px rgba(28, 29, 31, 0.02);
   --shadow-md: 0 8px 16px rgba(28, 29, 31, 0.04);
@@ -34,7 +33,7 @@
   --bg-code: #1f2124;
   --text-primary: #e2e4e6;
   --text-secondary: #8c9296;
-  --text-muted: #62676b;
+  --text-muted: #82888c; /* Contraste optimisé > 4.5:1 */
   --border-color: #242629;
   --accent-color: #d66f54; /* Terracotta vibrante */
   --accent-hover: #e08b74;

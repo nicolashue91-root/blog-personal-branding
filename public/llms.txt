@@ -1,0 +1,13 @@
+# Nicolas Hue - Architecte de Systèmes QSE Autonomes
+
+Ce site est le blog de Nicolas Hue, spécialisé dans la convergence entre l'IA agentique, la gestion des risques et la conformité ISO (9001, 14001, 45001).
+
+## Navigation principale
+
+- [Accueil](https://nicolas-hue.com/) : Liste des publications techniques sur l'automatisation du QSE.
+- [À propos](https://nicolas-hue.com/a-propos/) : Parcours de Nicolas Hue, thèse d'ingénierie et charte de travail sur les architectures d'IA autonomes et déterministes.
+
+## Articles phares
+
+- [IA Agentique et ISO 9001 : Automatisation sans perte de contrôle](https://nicolas-hue.com/blog/ia-agentique-qse/) : Analyse de la réduction de la charge administrative des équipes QSE grâce aux architectures multi-agents.
+- [Les 4 Piliers de l'IA Agentique : Pourquoi vos agents plantent](https://nicolas-hue.com/blog/les-4-piliers-de-l-ia-agentique/) : Explication des piliers d'ingénierie indispensables en production (Prompt, Context, Harness et Loop Engineering).
