@@ -8,12 +8,16 @@ interface Props {
 }
 
 const { title, description, type = 'website' } = Astro.props;
-const siteTitle = "Nicolas | Architecte de Systèmes QSE Autonomes";
-const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+const siteBranding = "Nicolas Hue";
+const fullTitle = (title.includes(siteBranding) || title === "Nicolas Hue | Architecte de Systèmes QSE Autonomes")
+  ? title
+  : (title.length + siteBranding.length + 3 <= 65)
+    ? `${title} | ${siteBranding}`
+    : title;
 
 const currentPath = Astro.url.pathname;
 const isArticlesActive = currentPath === '/' || currentPath.startsWith('/blog');
-const isAboutActive = currentPath === '/about' || currentPath === '/about/';
+const isAboutActive = currentPath === '/a-propos' || currentPath === '/a-propos/';
 ---
 
 <!doctype html>
@@ -69,7 +73,7 @@ const isAboutActive = currentPath === '/about' || currentPath === '/about/';
         </a>
         <nav class="nav-links">
           <a href="/" class={isArticlesActive ? "active" : ""}>Articles</a>
-          <a href="/about" class={isAboutActive ? "active" : ""}>À propos</a>
+          <a href="/a-propos" class={isAboutActive ? "active" : ""}>À propos</a>
           <div class="header-divider"></div>
           <div class="header-socials">
             <a href="https://www.linkedin.com/in/nicolas-hue91/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon-link">
