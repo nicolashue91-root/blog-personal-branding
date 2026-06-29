@@ -1,0 +1,121 @@
+---
+title: "La permission de construire des trucs inutiles"
+description: "Comment une interview de Peter Steinberger a débloqué mon apprentissage du code et des agents autonomes."
+pubDate: 2026-06-29
+author: "Nicolas Hue"
+tags: ["vibe coding", "agents IA", "développement personnel"]
+---
+
+Tout commence avec Silicon Carne. Le podcast de Carlos Diaz, un épisode consacré à OpenClaw. Si tu ne connais pas, OpenClaw est l'outil qui a changé quelque chose de fondamental dans l'accès au développement assisté par agents : pour la première fois, n'importe qui pouvait piloter un agent de développement depuis un simple terminal, sans environnement lourd, sans configuration ésotérique. Un CLI qui comprenait ce que tu voulais construire et s'y attelait avec toi.
+
+Cet épisode m'avait mis dans un état. Le genre d'état où tu fermes le podcast et tu ne penses qu'à ça.
+
+Et là, l'algorithme YouTube a bien fait son travail. Directement dans les recommandations : Peter Steinberger, interviewé pendant 3 heures par Lex Fridman. Autant vous dire que regarder des podcasts de 3 heures en anglais n'est pas mon quotidien. Je ne connaissais pas vraiment cet homme avant ça, mais j'avais encore la tête pleine de l'épisode Silicon Carne et j'étais dans exactement le bon état d'esprit pour entendre ce qu'il avait à dire.
+
+Steinberger est le fondateur de PSPDFKit (désormais Nutrient), un SDK de traitement de PDF embarqué dans des milliers d'applications. Il code depuis des décennies. Et là, dans cette interview, au moment exact où tout le monde parlait d'ingénierie agentique comme si c'était la fin du développement logiciel tel qu'on le connaissait, lui disait quelque chose d'assez différent.
+
+Il parlait de ses projets personnels. Des dizaines de programmes qu'il avait construits. Et qui ne sortiraient jamais.
+
+Ça n'avait pas l'air de le déranger.
+
+---
+
+## Ce qui m'a arrêté net
+
+J'ai dû mettre pause. Rembobiner mentalement.
+
+Toute la narrative autour du vibe coding en ce moment-là tournait autour de l'accélération, du lancement rapide, du "build in public" agressif. On construisait pour *sortir* quelque chose. Pour accumuler des étoiles GitHub. Pour avoir une histoire à raconter sur LinkedIn.
+
+Steinberger, lui, parlait de construire parce qu'il aimait ça.
+
+À un moment, Lex Fridman lui pose une question directe : comment ça se fait que toi, seul, tu aies réussi à construire cette boucle agentique là où des startups entières avec plusieurs personnes n'y arrivent pas ?
+
+Sa réponse :
+
+> "C'est dur de rivaliser avec quelqu'un qui est juste là pour s'amuser."
+
+Cette phrase a fait quelque chose dans ma tête. Pas un déclic dramatique. Plutôt comme quand on retire une chaussure trop serrée. Un soulagement discret.
+
+Je ne suis pas développeur. J'avais passé les fins de journées des cinq dernières années à bidouiller des automatisations avec des outils no-code, n8n, Zapier, des flux visuels. Des nœuds qu'on connecte. Jamais une ligne de code écrite de ma main. La logique de ce que ça faisait, oui. La syntaxe, les fichiers, les configurations, les messages d'erreur : non. La pression implicite de devoir "lancer un produit" pour justifier l'apprentissage me pesait sans que je m'en rende vraiment compte.
+
+Steinberger venait de l'enlever.
+
+---
+
+## Le premier pas, et c'est raté
+
+Je commence avec OpenClaw.
+
+En théorie, exactement ce qu'il me faut. En pratique, je ne comprends pas ce que je fais.
+
+Je passe plusieurs heures à configurer l'outil. Je ne sais pas lire un fichier de configuration correctement à l'époque. Je confonds des variables d'environnement avec des paramètres globaux. Mes premiers essais ne produisent rien d'utile. L'outil me renvoie des erreurs que je ne sais pas interpréter.
+
+Ce qui m'aurait normalement fait abandonner, cette friction du débutant complet qui ne comprend pas les messages d'erreur, ne m'a pas arrêté. Probablement parce que j'avais intégré quelque chose de l'interview : l'échec à court terme ne disqualifie pas la démarche.
+
+> "Je pense vraiment que le 'vibe coding' est une insulte. Je dis toujours aux gens que je fais de l'ingénierie agentique, et puis peut-être qu'après 3h du matin, je passe au vibe coding, et le lendemain, je le regrette."
+
+Ça m'a fait marrer, parce que c'était exactement ma situation. Sauf que moi, c'était 3h du matin tous les soirs, sans le lendemain qui regrette, parce que je ne comprenais pas encore assez pour regretter quoi que ce soit.
+
+Je ne suis plus sur OpenClaw aujourd'hui. La configuration était trop complexe pour mon niveau de départ, et j'ai migré vers d'autres outils quelques semaines plus tard. Mais OpenClaw a ouvert quelque chose d'essentiel : j'avais touché à un terminal pour de vrai, commencé à regarder sous le capot d'un repository. Ce que je ne faisais jamais avant.
+
+---
+
+## Ce qui sort du chantier
+
+Les semaines passent. Je tâtonne, je casse des choses, je recommence.
+
+Et doucement, sans m'en apercevoir, je construis.
+
+**Un rappel pour boire de l'eau.** Programme bête, inutile à l'échelle du monde. Il tournait sur ma machine et m'envoyait une notification toutes les heures. Je l'ai arrêté au bout d'un moment parce que ça me tapait sur le système d'avoir ça en permanence. Mais c'est le premier programme que j'ai écrit de bout en bout avec un agent. Et le fait qu'il m'ait agacé au point que je l'arrête prouve qu'il fonctionnait.
+
+**Un convertisseur PDF visuel vers PDF OCR.** Utilitaire pur. Je traitais des documents scannés pour mon travail et la friction manuelle m'agaçait. Un agent, quelques itérations, un script Python fonctionnel. Ça résolvait un problème réel que j'avais.
+
+**Un analyseur de biais cognitifs.** Celui-là est plus ambitieux. Il prend une conversation (un débat en ligne, un thread, un article de presse) et identifie les raisonnements fallacieux, les biais de confirmation, les arguments ad hominem. C'est le projet qui m'a forcé à comprendre la notion de prompt structuré et de post-traitement de la sortie d'un modèle.
+
+**L'agent weekend pour ma fille.** C'est le projet dont je suis le plus content. Ma fille a deux ans. Chaque vendredi, j'ai besoin d'idées d'activités adaptées à son âge dans mon secteur (sorties, marchés, événements, musées, parcs). Avant, je passais 20 à 30 minutes sur Google à recouper des informations disparates. Maintenant, un agent fait ce travail le jeudi soir et me dépose un digest propre dans ma boîte mail le vendredi matin.
+
+Ce programme n'a aucune valeur marchande. Il ne sera jamais sur le marché. Il n'intéresse personne d'autre que moi.
+
+Et c'est précisément pour ça que je l'ai construit correctement.
+
+---
+
+## Ce qui a réellement changé
+
+Steinberger a une vision sur la programmation qui m'a frappé :
+
+> "L'art véritable de la programmation restera, mais ce sera comme le tricot. Vous voyez ? Les gens feront ça parce qu'ils aiment ça, pas parce que ça a un quelconque sens."
+
+Je ne sais pas si cette vision est juste à long terme. Mais elle décrit assez bien ce qui s'est passé pour moi ces derniers mois.
+
+Ce que j'ai appris, je l'ai appris par friction réelle, pas par cours structuré. J'ai compris ce qu'est un repository en essayant de ne pas casser le mien. J'ai compris les variables d'environnement parce que j'avais une clé API que je ne voulais pas exposer. J'ai compris la différence entre un script et un agent parce que j'ai construit les deux et observé pourquoi l'un était trop rigide pour le cas d'usage que j'avais.
+
+Plusieurs mois après ce premier lancement raté sur OpenClaw, je peux lire un fichier de configuration sans aide. Je peux déboguer une erreur d'import Python. Je comprends ce qu'est un contexte de fenêtre dans un LLM et pourquoi ça change la manière dont tu construis ton prompt.
+
+Ce n'est pas "je suis développeur maintenant". Ce n'est pas ça la bonne formulation.
+
+C'est plutôt : je ne subis plus la technologie. Je commence à la piloter.
+
+---
+
+## La boucle
+
+> "Je préfère largement lire votre anglais approximatif que votre bouillie générée par l'IA. Je pense qu'on arrive à un point où j'accorde à nouveau de la valeur aux fautes de frappe."
+
+Steinberger dit ça à propos de l'authenticité dans un monde saturé de contenu généré. Mais j'y vois aussi quelque chose sur l'apprentissage.
+
+Le code approximatif que tu écris toi-même vaut plus que le code parfait que tu as copié sans comprendre. L'agent imparfait que tu as patiemment construit en cassant trois fois la logique de boucle t'apprend quelque chose que l'agent clé-en-main ne t'apprendra jamais.
+
+Ce que Steinberger voulait dire sur "construire pour soi", je pense que c'est ça en filigrane. Pas une injonction au narcissisme ou à l'isolement créatif. Plutôt une observation pratique : quand tu construis pour toi, tu ne triches pas. Tu ne peux pas faire semblant que ça marche si ça ne marche pas. Personne ne va te dire que c'est bien si c'est cassé. Tu dois aller jusqu'au bout parce que c'est *ton* problème que tu essaies de résoudre.
+
+C'est peut-être la meilleure condition d'apprentissage qui existe.
+
+Mon analyseur de biais tourne. Mon agent weekend a tourné ce vendredi. Ma fille de deux ans ne sait pas qu'un programme a choisi l'activité du samedi. Et moi, je comprends maintenant comment ce programme fonctionne ligne par ligne.
+
+Ça n'a aucun sens économique.
+
+C'est exactement pour ça que ça marche.
+
+---
+
+*Peter Steinberger a été interviewé par Lex Fridman en février 2026. L'interview complète est disponible ici : https://www.youtube.com/watch?v=YFjfBk8HI5o&t=11157s*
