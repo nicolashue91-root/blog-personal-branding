@@ -20,8 +20,8 @@
   --shadow-sm: 0 2px 4px rgba(28, 29, 31, 0.02);
   --shadow-md: 0 8px 16px rgba(28, 29, 31, 0.04);
   
-  --max-width-page: 960px;
-  --max-width-content: 680px;
+  --max-width-page: 1056px;
+  --max-width-content: 748px;
   --border-radius: 6px;
   --transition-speed: 0.2s;
 }
@@ -884,6 +884,9 @@ footer {
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
   transition: border-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .principle-card:hover {
@@ -904,6 +907,26 @@ footer {
 .principle-card p {
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 0;
+  margin-bottom: 1.25rem;
   color: var(--text-secondary);
+  flex-grow: 1;
+}
+
+.principle-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding-top: 1rem;
+  border-top: 1px dotted var(--border-color);
+  margin-top: auto;
+}
+
+.principle-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  background-color: var(--bg-code);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
 }

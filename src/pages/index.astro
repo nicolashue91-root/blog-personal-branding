@@ -50,7 +50,7 @@ const archivePosts = sortedPosts.slice(1);
   {/* Section Principes d'architecture */}
   <section class="principles-section fade-in-entry" style="animation-delay: 0.05s;">
     <h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); border-bottom: none; margin-top: 0; margin-bottom: 1.5rem; font-weight: 700;">
-      Principes d'architecture
+      Principes d'architecture autonomes
     </h2>
     <div class="principles-grid">
       <div class="principle-card">
@@ -59,6 +59,11 @@ const archivePosts = sortedPosts.slice(1);
         </div>
         <h3>Robustesse</h3>
         <p>Garantir la continuité de service et la résilience du système face aux imprévus opérationnels ou aux données incomplètes du terrain.</p>
+        <div class="principles-tags">
+          <span class="principle-tag">Fallback LLM</span>
+          <span class="principle-tag">Self-Correction</span>
+          <span class="principle-tag">Offline Buffer</span>
+        </div>
       </div>
       <div class="principle-card">
         <div class="principle-icon">
@@ -66,6 +71,11 @@ const archivePosts = sortedPosts.slice(1);
         </div>
         <h3>Sécurité</h3>
         <p>Protéger les données industrielles sensibles et confiner les risques pour éviter toute propagation d'incident au reste de l'organisation.</p>
+        <div class="principles-tags">
+          <span class="principle-tag">Sandboxing</span>
+          <span class="principle-tag">Isolation</span>
+          <span class="principle-tag">Secrets Encryption</span>
+        </div>
       </div>
       <div class="principle-card">
         <div class="principle-icon">
@@ -73,6 +83,11 @@ const archivePosts = sortedPosts.slice(1);
         </div>
         <h3>Déterminisme</h3>
         <p>Assurer des réponses stables, reproductibles et auditables, éliminant toute incertitude ou hallucination pour garantir la conformité ISO.</p>
+        <div class="principles-tags">
+          <span class="principle-tag">JSON Schemas</span>
+          <span class="principle-tag">Fixed Seed</span>
+          <span class="principle-tag">Audit Trails</span>
+        </div>
       </div>
       <div class="principle-card">
         <div class="principle-icon">
@@ -80,6 +95,11 @@ const archivePosts = sortedPosts.slice(1);
         </div>
         <h3>Efficience</h3>
         <p>Bâtir des architectures d'IA sobres et frugales en ressources, optimisant les coûts d'exploitation et l'empreinte environnementale.</p>
+        <div class="principles-tags">
+          <span class="principle-tag">Token Budget</span>
+          <span class="principle-tag">Quantization</span>
+          <span class="principle-tag">Cache Policies</span>
+        </div>
       </div>
     </div>
   </section>
