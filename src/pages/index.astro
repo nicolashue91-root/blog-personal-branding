@@ -32,7 +32,7 @@ const archivePosts = sortedPosts.slice(1);
 
 <Layout title={title} description={description}>
   <section class="hero-section fade-in-entry" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
-    <div style="flex: 1 1 500px;">
+    <div style="flex: 1 1 500px; animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;">
       <h1 style="font-size: 2.85rem; margin-bottom: 0.75rem; letter-spacing: -0.04em; font-weight: 800; line-height: 1.3;">
         Automatiser le QSE. <br />Sans Jamais Perdre le Contrôle.
       </h1>
@@ -40,8 +40,10 @@ const archivePosts = sortedPosts.slice(1);
         Responsable QSE en alternance et ingénieur data de formation. Je documente ici comment l'IA agentique peut libérer les équipes QSE de la surcharge administrative, tout en maintenant la conformité ISO.
       </p>
     </div>
-    <div style="flex: 0 0 280px; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
-      <img src="/images/hero-section-pic.jpg" alt="Nicolas Hue" style="width: 250px; height: 320px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); filter: contrast(1.02); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);" class="hero-photo" />
+    <div style="flex: 0 0 280px; display: flex; justify-content: center; align-items: center; margin: 0 auto; opacity: 0; animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;">
+      <div class="hero-photo-wrapper" style="position: relative; overflow: hidden; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;" onmouseover="this.style.transform='scale(1.03) rotate(-0.5deg)'; this.style.boxShadow='var(--shadow-md)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='var(--shadow-sm)';">
+        <img src="/images/hero-section-pic.jpg" alt="Nicolas Hue" style="width: 250px; height: 320px; object-fit: cover; filter: contrast(1.02); display: block;" class="hero-photo" />
+      </div>
     </div>
   </section>
 
