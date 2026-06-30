@@ -16,7 +16,7 @@ const fullTitle = (title.includes(siteBranding) || title === "Nicolas Hue | Arch
     : title;
 
 const currentPath = Astro.url.pathname;
-const isArticlesActive = currentPath === '/' || currentPath.startsWith('/blog');
+const isArticlesActive = currentPath.startsWith('/blog') || currentPath.startsWith('/blog/');
 const isAboutActive = currentPath === '/a-propos' || currentPath === '/a-propos/';
 ---
 
